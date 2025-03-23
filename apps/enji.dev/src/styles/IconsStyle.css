@@ -1,0 +1,26 @@
+.jetbrains-icon path {
+  transition: fill 0.2s ease;
+}
+
+/* Hover state: apply specific fill colors */
+.jetbrains-icon:hover path:nth-child(1) {
+  fill: #f57c00; /* Orange */
+}
+.jetbrains-icon:hover path:nth-child(2) {
+  fill: #1e88e5; /* Blue */
+}
+.jetbrains-icon:hover path:nth-child(3) {
+  fill: #2962ff; /* Dark Blue */
+}
+.jetbrains-icon:hover path:nth-child(4) {
+  fill: #ab47bc; /* Purple */
+}
+.jetbrains-icon:hover path:nth-child(5) {
+  fill: #e91e63; /* Pink */
+}
+.jetbrains-icon:hover path:nth-child(6) {
+  fill: #000001; /* Black (square) */
+}
+.jetbrains-icon:hover path:nth-child(7) {
+  fill: #fff; /* White (letters) */
+}

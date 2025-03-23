@@ -1,6 +1,6 @@
 import slug from 'slug';
 
-import { NpmIcon, PnpmIcon, YarnIcon } from '@/components/Icons';
+import { NpmIcon } from '@/components/Icons';
 import {
   CssIcon,
   FileIcon,
@@ -98,12 +98,6 @@ export const formatLang = (
       break;
     case 'npm':
       icon = <NpmIcon />;
-      break;
-    case 'pnpm':
-      icon = <PnpmIcon />;
-      break;
-    case 'yarn':
-      icon = <YarnIcon />;
       break;
     default:
       break;

@@ -65,7 +65,6 @@ function Navbar() {
             </ul>
           </nav>
           <ul className={clsx('flex items-center')}>
-            
             <li className={clsx('hidden', 'sm:block')}>
               <NavIcon
                 href="https://github.com/malekluka?tab=repositories"

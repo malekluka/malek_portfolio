@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { m, useAnimationControls } from 'framer-motion';
+import { m, useAnimationControls } from 'framer-motion'
 import Image from 'next/image';
 
 const animation = {
@@ -55,7 +55,8 @@ function HeaderTitle() {
               });
             }}
             priority
-          />
+            fetchPriority="high"
+          />  
         </m.div>
       </m.div>
       <span className={clsx('text-slate-700', 'dark:text-slate-300')}>
@@ -70,9 +71,9 @@ function HeaderTitle() {
         >
           I&apos;m{' '}
           <strong className={clsx('text-accent-600', 'dark:text-accent-500')}>
-            Enji
+            Malek
           </strong>{' '}
-          Kusnadi,{' '}
+          Khaled,{' '}
         </m.span>
         <m.h1
           className={clsx(
@@ -91,10 +92,9 @@ function HeaderTitle() {
               'dark:text-slate-300'
             )}
           >
-            Front-End Developer
+            Front-End Developer, with MERN stack skills 
           </strong>{' '}
-          who loves intuitive,{' '}
-          <span className={clsx('block')}>clean and modern UI design.</span>
+          <span className={clsx('block')}> who loves intuitive, {' '}clean and modern UI design.</span>
         </m.h1>
       </span>
     </div>
