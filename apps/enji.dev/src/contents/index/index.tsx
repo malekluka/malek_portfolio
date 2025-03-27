@@ -52,8 +52,8 @@ function FeaturedCardSection() {
               <CodeIcon className={clsx('h-5 w-5 text-white')} />
             </div>
           }
-          title="Pretty & Optimized"
-          desc="Writing clean code is a top priority while keeping it as optimized as possible."
+          title="Clean & Optimized"
+          desc="Readable, maintainable, and high-performance code—crafted for both beauty and speed."
         />
       </div>
     </div>

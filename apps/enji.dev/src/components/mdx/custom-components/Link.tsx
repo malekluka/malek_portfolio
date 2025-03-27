@@ -34,7 +34,14 @@ export function Link({ children, href }: Props) {
       );
     case 'mail':
       return (
-        <a href={href} className={clsx('link')}>
+        <a
+      href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+        href.replace('mailto:', '')
+      )}`}
+      className={clsx('link')}
+      target="_blank"
+      rel="noopener noreferrer"
+         >
           <MailIcon />
           {children}
         </a>
