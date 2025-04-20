@@ -167,8 +167,7 @@ function Footer() {
                     {
                       title: 'Skills and Tools',
                       href: '/work/skills-and-tools',
-                    },
-                    { title: 'Studio', href: '/work/studio' },
+                    }
                   ]}
                 />
                 <FooterGroup

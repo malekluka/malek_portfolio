@@ -1,26 +1,27 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 
-import { GitHubIcon, NpmIcon } from '@/components/Icons';
+import { GitHubIcon } from '@/components/Icons';
 import { SectionButton } from '@/components/sections/SectionButton';
 import SectionContent from '@/components/sections/SectionContent';
 import SectionTitle from '@/components/sections/SectionTitle';
 import AppWindow from '@/components/wireframes/AppWindow';
 import GitHubWireframe from '@/components/wireframes/GitHub';
-import NpmWireframe from '@/components/wireframes/Npm';
 
 function ProjectsContents() {
-  const [currentState, setCurrentState] = useState<'npm' | 'github'>('github');
+  const [currentState, setCurrentState] = useState<'github'>('github');
 
   return (
     <>
       <SectionTitle
-        title="The dynamic accent colors."
-        caption="tailwindcss-accent"
-        description="Add accent colors for dynamic, flexible color use in your Tailwind CSS project."
+        title="Movie Recommendation App"
+        caption="Built with the MERN Stack"
+        description="A fully responsive app that lets users search, filter, and save movies. Includes a 'Watch Later' list, authentication, and data fetched from the TMDB API."
         button={{
-          title: 'learn more',
-          href: '/docs/tailwindcss-accent',
+          title: 'View Project',
+          href: 'https://moviescout-f33zj4te1-maleklukas-projects.vercel.app',
+          target: '_blank', // Open in a new tab
+          rel: 'noopener noreferrer', // Security improvement
         }}
       />
       <SectionContent>
@@ -30,16 +31,9 @@ function ProjectsContents() {
               <SectionButton
                 title="Available on GitHub"
                 icon={<GitHubIcon className={clsx('my-2 h-16 w-16')} />}
-                description="Access powerful and flexible package on GitHub with MIT license."
+                description="Access the source code for the Movie Recommendation App on GitHub."
                 active={currentState === 'github'}
                 onClick={() => setCurrentState('github')}
-              />
-              <SectionButton
-                title="npm package"
-                icon={<NpmIcon className={clsx('my-2 h-16 w-16')} />}
-                description="Install and use the package with ease thanks to its typed options."
-                active={currentState === 'npm'}
-                onClick={() => setCurrentState('npm')}
               />
             </div>
           </div>
@@ -51,30 +45,21 @@ function ProjectsContents() {
                   browserTabs={[
                     {
                       icon: <GitHubIcon className="h-4 w-4" />,
-                      title: 'malekdev/tailwindcss-accent - GitHub',
+                      title:
+                        'malekluka/Movie-Recommendation-App-React - GitHub',
                       isActive: currentState === 'github',
-                    },
-                    {
-                      icon: <NpmIcon className="h-4 w-4" />,
-                      title: 'tailwindcss-accent - npm',
-                      isActive: currentState === 'npm',
                     },
                   ]}
                 >
                   {currentState === 'github' && (
-                    <GitHubWireframe
-                      author="malekdev"
-                      license="MIT"
-                      repository="tailwindcss-accent"
-                      description="Adds accent colors for more dynamic and flexible color utilization."
-                    />
-                  )}
-                  {currentState === 'npm' && (
-                    <NpmWireframe
-                      packageName="tailwindcss-accent"
-                      description="Adds accent colors for more dynamic and flexible color utilization."
-                      isWithTypeScript
-                    />
+                    <div className="pointer-events-auto">
+                      <GitHubWireframe
+                        author="malekluka"
+                        license="MIT"
+                        repository="Movie-Recommendation-App-React-"
+                        description="A MERN stack app for movie recommendations with features like search, filter, and watch later."
+                      />
+                    </div>
                   )}
                 </AppWindow>
               </div>

@@ -99,6 +99,7 @@ function HeaderTitle() {
       </span>
     </div>
   );
+  
 }
 
 export default HeaderTitle;

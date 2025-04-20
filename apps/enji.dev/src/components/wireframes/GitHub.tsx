@@ -22,35 +22,44 @@ function GitHubWireframe({
         'dark:bg-slate-900 dark:text-slate-400'
       )}
     >
-      <div className={clsx('flex items-center gap-1')}>
-        <div className={clsx('mr-1')}>
-          <SkeletonSm />
-        </div>
-        {author ? (
-          <div className={clsx('-mt-0.5 text-blue-700', 'dark:text-blue-500')}>
-            {author}
-          </div>
-        ) : (
-          <SkeletonSm w={64} />
-        )}
-        <div className={clsx('-mt-0.5')}>/</div>
-        <div
-          className={clsx(
-            '-mt-0.5 font-bold text-blue-700',
-            'dark:font-semibold dark:text-blue-500'
-          )}
-        >
-          {repository}
-        </div>
-        <div
-          className={clsx(
-            'border-divider-light ml-1 rounded-full border px-2 py-0.5 text-xs',
-            'dark:border-divider-dark'
-          )}
-        >
-          public
-        </div>
-      </div>
+     <div className={clsx('flex items-center gap-1')}>
+  <div className={clsx('mr-1')}>
+    <SkeletonSm />
+  </div>
+  {author ? (
+    <a
+      href={`https://github.com/${author}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={clsx('-mt-0.5 text-blue-700 hover:underline', 'dark:text-blue-500')}
+    >
+      {author}
+    </a>
+  ) : (
+    <SkeletonSm w={64} />
+  )}
+  <div className={clsx('-mt-0.5')}>/</div>
+  <a
+    href={`https://github.com/${author}/${repository}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={clsx(
+      '-mt-0.5 font-bold text-blue-700 hover:underline',
+      'dark:font-semibold dark:text-blue-500'
+    )}
+  >
+    {repository}
+  </a>
+  <div
+    className={clsx(
+      'border-divider-light ml-1 rounded-full border px-2 py-0.5 text-xs',
+      'dark:border-divider-dark'
+    )}
+  >
+    public
+  </div>
+</div>
+
       <div className={clsx('mt-2')}>
         <p>{description}</p>
       </div>

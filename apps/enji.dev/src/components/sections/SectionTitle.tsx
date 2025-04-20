@@ -13,6 +13,8 @@ interface SectionTitleProps {
   button?: {
     title: string;
     href: string;
+    target?: string; // Add target attribute
+    rel?: string; // Add rel attribute
   } | null;
 }
 
@@ -50,7 +52,12 @@ function SectionTitle({
       </p>
       {button && (
         <div className={clsx('mt-4', 'md:mt-6')}>
-          <Link href={button.href} className={clsx('button button--soft')}>
+          <Link
+            href={button.href}
+            target={button.target} // Pass target attribute
+            rel={button.rel} // Pass rel attribute
+            className={clsx('button button--soft')}
+          >
             {button.title}
             <ChevronRightIcon className="mt-0.5 h-3 w-3" />
           </Link>

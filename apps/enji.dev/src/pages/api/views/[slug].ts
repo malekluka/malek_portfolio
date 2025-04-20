@@ -16,7 +16,7 @@ export default async function handler(
   const sessionId = getSessionId(req);
 
   try {
-    if (req.method === 'POST') {
+    if (req.method === 'POST')  {
       const contentType = z.nativeEnum(ContentType).parse(req.body.contentType);
       const contentTitle = z.string().parse(req.body.contentTitle);
       const currentViews = await getViewsBy(slug, sessionId);

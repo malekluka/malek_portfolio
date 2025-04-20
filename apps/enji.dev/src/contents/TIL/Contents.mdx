@@ -1,166 +1,278 @@
 import TIL from '@/components/mdx/TIL';
 
-<TIL.Items date="2023-01-29">
-
+<TIL.Items date="2025-02-10">
   <TIL.Item>
-    
-    ## Tailwind CSS !important modifier
-
+    ## Git – Version Control Made Easy
     <TIL.ItemTags>
-      <TIL.ItemTag>tailwindcss</TIL.ItemTag>
-      <TIL.ItemTag>css</TIL.ItemTag>
+      <TIL.ItemTag>Git</TIL.ItemTag>
+      <TIL.ItemTag>Version Control</TIL.ItemTag>
     </TIL.ItemTags>
 
-    Make any utility important by adding a `!` character to the beginning:
+    Git allows for efficient version tracking, collaboration, and rollback.
+
+    ```bash
+    git init
+    git add .
+    git commit -m "Initial commit"
+    ```
+
+    [Official Docs](https://git-scm.com/doc)
+
+  </TIL.Item>
+</TIL.Items>
+
+<TIL.Items date="2024-11-15">
+  <TIL.Item>
+    ## Angular Signals – A Simpler Way to Handle Reactive State
+    <TIL.ItemTags>
+      <TIL.ItemTag>Angular</TIL.ItemTag>
+      <TIL.ItemTag>Signals</TIL.ItemTag>
+      <TIL.ItemTag>State Management</TIL.ItemTag>
+    </TIL.ItemTags>
+
+    Angular Signals offer a new, intuitive way to manage and react to state changes without the complexity of RxJS.
+    Signals are synchronous, easier to debug, and eliminate the need for manual subscriptions.
+
+    ````ts
+    import { signal } from '@angular/core';
+
+    export class CounterComponent {
+      count = signal(0);
+
+      increment() {
+        this.count.set(this.count() + 1);
+      }
+
+      decrement() {
+        this.count.set(this.count() - 1);
+      }
+    }
+    ````
+
+    [Official Docs](https://angular.dev/guide/signals)
+
+  </TIL.Item>
+</TIL.Items>
+
+<TIL.Items date="2024-11-03">
+  <TIL.Item>
+    ## Tailwind CSS – Utility-first Styling Made Simple
+    <TIL.ItemTags>
+      <TIL.ItemTag>Tailwind</TIL.ItemTag>
+      <TIL.ItemTag>CSS</TIL.ItemTag>
+    </TIL.ItemTags>
+
+    Tailwind provides low-level utility classes for rapid UI building with consistent design.
 
     ```html
-    <p class="font-bold !font-medium">
-      This will be medium even though bold comes later in the CSS.
-    </p>
+    <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded">
+      Click me
+    </button>
     ```
 
-    [Official Docs](https://tailwindcss.com/docs/configuration#important-modifier)
+    [Official Docs](https://tailwindcss.com/docs/utility-first)
 
   </TIL.Item>
-
 </TIL.Items>
 
-<TIL.Items date="2023-01-18">
-
+<TIL.Items date="2024-10-18">
   <TIL.Item>
-    
-    ## nested backdrop-filter
-
+    ## Bootstrap Grid System – Responsive Layouts Made Easy
     <TIL.ItemTags>
-      <TIL.ItemTag>css</TIL.ItemTag>
+      <TIL.ItemTag>Bootstrap</TIL.ItemTag>
+      <TIL.ItemTag>Grid</TIL.ItemTag>
+      <TIL.ItemTag>CSS Framework</TIL.ItemTag>
     </TIL.ItemTags>
 
-    Backdrop filter tidak akan berhasil jika parent memiliki efek backdrop-filter juga.
+    Bootstrap uses a flexible 12-column grid layout system that works across devices.
 
-    [issue](https://bugs.chromium.org/p/chromium/issues/detail?id=993644) &mdash; [workaround](https://stackoverflow.com/questions/60997948/backdrop-filter-not-working-for-nested-elements-in-chrome)
-
-  </TIL.Item>
-
-</TIL.Items>
-
-<TIL.Items date="2023-01-17">
-
-  <TIL.Item>
-
-    ## pre overflow: scroll inside flex
-
-    <TIL.ItemTags>
-      <TIL.ItemTag>css</TIL.ItemTag>
-      <TIL.ItemTag>pre</TIL.ItemTag>
-      <TIL.ItemTag>flex</TIL.ItemTag>
-    </TIL.ItemTags>
-
-    Pernah pake `overflow-x: scroll` pada `pre` element tapi ngga ngaruh, malah parent yang ada scrollnya?
-
-    Mungkin parentnya didalem `display: flex`. Kalau iya, coba tambahin `min-width: 0` pada parentnya.
-
-    [Credit](https://weblog.west-wind.com/posts/2016/feb/15/flexbox-containers-pre-tags-and-managing-overflow)
-
-  </TIL.Item>
-
-  <TIL.Item>
-
-    ## import mdx file sebagai component
-
-    <TIL.ItemTags>
-      <TIL.ItemTag>react</TIL.ItemTag>
-      <TIL.ItemTag>mdx</TIL.ItemTag>
-    </TIL.ItemTags>
-
-    Import mdx file di component, caranya mirip seperti import component biasa:
-
-    ```ts {copy:false} {footer:false}
-    import Contents from '@/mdx/Contents.mdx';
-
-    // Penggunaan
-    <Contents />
+    ```html
+    <div class="row">
+      <div class="col-md-6">Left</div>
+      <div class="col-md-6">Right</div>
+    </div>
     ```
 
-    Ternyata ada di [dokumentasinya](https://mdxjs.com/docs/using-mdx/#mdx-content). Biasakan membaca dulu ya gais jangan kaya saya wkwk.
+    [Official Docs](https://getbootstrap.com/docs/5.3/layout/grid/)
 
   </TIL.Item>
-
-  <TIL.Item>
-
-    ## :not() pseudo-class
-
-    <TIL.ItemTags>
-      <TIL.ItemTag>css</TIL.ItemTag>
-      <TIL.ItemTag>selector</TIL.ItemTag>
-    </TIL.ItemTags>
-
-    Pake `:not()` ini emang agak tricky, salah penggunaan hasilnya juga bisa ngga sesuai harapan.
-
-    Contoh, styling inline `code` dimana bukan children dari `pre` ataupun `.code-block`. Penggunaannya:
-
-    <TIL.DnD>
-      <TIL.Dont>
-        ```css {copy:false} {footer:false}
-        :not(pre), :not(.code-block) {
-          > code {
-            background-color: 'red';
-          }
-        }
-        ```
-      </TIL.Dont>
-      <TIL.Do>
-        ```css {copy:false} {footer:false}
-        :not(pre, .code-block) {
-          > code {
-            background-color: 'red';
-          }
-        }
-        ```
-      </TIL.Do>
-    </TIL.DnD>
-
-  </TIL.Item>
-
 </TIL.Items>
 
-<TIL.Items date="2023-01-16">
-
+<TIL.Items date="2024-10-10">
   <TIL.Item>
-
-    ## Turborepo dependsOn
-
+    ## JSON Web Tokens (JWT) – Securely Authenticate Users
     <TIL.ItemTags>
-      <TIL.ItemTag>turborepo</TIL.ItemTag>
-      <TIL.ItemTag>monorepo</TIL.ItemTag>
+      <TIL.ItemTag>JWT</TIL.ItemTag>
+      <TIL.ItemTag>Authentication</TIL.ItemTag>
     </TIL.ItemTags>
 
-    ```json {copy:false} {footer:false}
-    "build": {
-      "dependsOn": ["^lint", "test"]
-    },
+    JWTs allow for secure user authentication and authorization using token-based mechanisms.
+
+    ```js
+    const jwt = require('jsonwebtoken');
+    const token = jwt.sign({ userId: 123 }, 'secret', { expiresIn: '1h' });
+
+    console.log(token);
     ```
 
-    `dependsOn` dengan ^ menandakan task dari package lain, sedangkan yang tanpa ^ task dari package itu sendiri.
-
-    Misal: app A pas mau build harus running tasks `lint` di semua package dependenciesnya, dan juga harus running task `test` app A itu sendiri.
+    [Official Docs](https://jwt.io/)
 
   </TIL.Item>
-
 </TIL.Items>
 
-<TIL.Items date="2023-01-15">
-
+<TIL.Items date="2024-10-01">
   <TIL.Item>
-    
-    ## e.target.valueAsNumber
-
+    ## Firebase Authentication – Easy User Auth
     <TIL.ItemTags>
-      <TIL.ItemTag>html</TIL.ItemTag>
-      <TIL.ItemTag>js</TIL.ItemTag>
+      <TIL.ItemTag>Firebase</TIL.ItemTag>
+      <TIL.ItemTag>Authentication</TIL.ItemTag>
     </TIL.ItemTags>
 
-    Pakai `e.target.valueAsNumber` untuk otomatis mengembalikan nilai input sebagai number. Tidak perlu `parseInt(e.target.value)` lagi.
+    Firebase Auth offers a simple way to add login systems to your web apps.
+
+    ```js
+    import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => console.log(userCredential))
+      .catch((error) => console.error(error));
+    ```
+
+    [Official Docs](https://firebase.google.com/docs/auth)
 
   </TIL.Item>
+</TIL.Items>
 
+<TIL.Items date="2024-09-21">
+  <TIL.Item>
+    ## Express – Minimal and Flexible Node.js Web Framework
+    <TIL.ItemTags>
+      <TIL.ItemTag>Express</TIL.ItemTag>
+      <TIL.ItemTag>Node.js</TIL.ItemTag>
+    </TIL.ItemTags>
+
+    Express is a fast, unopinionated, and minimalist web framework for Node.js that helps to simplify the creation of server-side applications.
+
+    ```js
+    const express = require('express');
+    const app = express();
+    const port = 3000;
+
+    app.get('/', (req, res) => {
+      res.send('Hello World!');
+    });
+
+    app.listen(port, () => {
+      console.log(`Example app listening at http://localhost:${port}`);
+    });
+    ```
+
+    [Official Docs](https://expressjs.com/)
+
+  </TIL.Item>
+</TIL.Items>
+
+<TIL.Items date="2024-09-11">
+  <TIL.Item>
+    ## MongoDB – NoSQL Database for Modern Applications
+    <TIL.ItemTags>
+      <TIL.ItemTag>MongoDB</TIL.ItemTag>
+      <TIL.ItemTag>NoSQL</TIL.ItemTag>
+    </TIL.ItemTags>
+
+    MongoDB is a document-based NoSQL database that allows for flexible, scalable data storage.
+
+    ```js
+    const { MongoClient } = require("mongodb");
+
+    const client = new MongoClient("mongodb://localhost:27017");
+
+    async function run() {
+      await client.connect();
+      const database = client.db("test");
+      const collection = database.collection("users");
+      await collection.insertOne({ name: "John", age: 30 });
+      client.close();
+    }
+
+    run().catch(console.dir);
+    ```
+
+    [Official Docs](https://www.mongodb.com/docs/)
+
+  </TIL.Item>
+</TIL.Items>
+
+<TIL.Items date="2024-09-01">
+  <TIL.Item>
+    ## React useEffect Hook – Side Effects Made Easy
+    <TIL.ItemTags>
+      <TIL.ItemTag>React</TIL.ItemTag>
+      <TIL.ItemTag>useEffect</TIL.ItemTag>
+      <TIL.ItemTag>Hooks</TIL.ItemTag>
+    </TIL.ItemTags>
+
+    `useEffect` lets you perform side effects in functional components like data fetching, subscriptions, or manually changing the DOM.
+
+    ```js
+    import { useEffect, useState } from 'react';
+
+    function Example() {
+      const [count, setCount] = useState(0);
+
+      useEffect(() => {
+        document.title = `You clicked ${count} times`;
+      }, [count]);
+
+      return <button onClick={() => setCount(count + 1)}>Click me</button>;
+    }
+    ```
+
+    [Official Docs](https://react.dev/reference/react/useEffect)
+
+  </TIL.Item>
+</TIL.Items>
+
+<TIL.Items date="2024-08-01">
+  <TIL.Item>
+    ## TypeScript – JavaScript with Types
+    <TIL.ItemTags>
+      <TIL.ItemTag>TypeScript</TIL.ItemTag>
+    </TIL.ItemTags>
+
+    TypeScript is a statically typed superset of JavaScript that offers better tooling and enhanced code quality.
+
+    ```ts
+    let age: number = 30;
+    function greet(name: string) {
+      console.log(`Hello, ${name}`);
+    }
+    greet("World");
+    ```
+
+    [Official Docs](https://www.typescriptlang.org/docs/)
+
+  </TIL.Item>
+</TIL.Items>
+
+<TIL.Items date="2024-06-24">
+  <TIL.Item>
+    ## JavaScript – The Language of the Web
+    <TIL.ItemTags>
+      <TIL.ItemTag>JavaScript</TIL.ItemTag>
+    </TIL.ItemTags>
+
+    JavaScript enables dynamic web content and is the core language for client-side interactivity.
+
+    ```js
+    function greet(name) {
+      alert(`Hello, ${name}!`);
+    }
+    greet("World");
+    ```
+
+    [Official Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+  </TIL.Item>
 </TIL.Items>
