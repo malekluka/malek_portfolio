@@ -174,10 +174,6 @@ function Footer() {
                   title="Learn"
                   links={[
                     {
-                      title: 'Docs',
-                      href: '/docs',
-                    },
-                    {
                       title: 'Personal Blog',
                       href: '/blog',
                     },
@@ -196,7 +192,7 @@ function Footer() {
                     
                     {
                       title: 'Source Code',
-                      href: 'https://github.com/malekluka?tab=repositories',
+                      href: 'https://github.com/malekluka/malek_portfolio.git',
                       isInternal: false,
                     },
                     {
