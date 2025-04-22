@@ -151,7 +151,7 @@ function FooterDescription() {
           >
             <FacebookIcon className={clsx('h-5 w-5')} />
           </a>
-        </li>``
+        </li>
       </ul>
     </div>
   );
