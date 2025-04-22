@@ -3,7 +3,9 @@ import Link from 'next/link';
 
 import {
   ExternalLink,
-  GitHubIcon
+  FacebookIcon, // Add Facebook icon import
+  GitHubIcon,
+  LinkedInIcon, // Add LinkedIn icon import
 } from '@/components/Icons';
 
 import dayjs from '@/utils/dayjs';
@@ -114,7 +116,6 @@ function FooterDescription() {
         intuitive, clean and modern UI design.
       </p>
       <ul className={clsx('-ml-2 flex gap-1')}>
-        
         <li>
           <a
             href="https://github.com/malekluka?tab=repositories"
@@ -127,7 +128,30 @@ function FooterDescription() {
             <GitHubIcon className={clsx('h-5 w-5')} />
           </a>
         </li>
-        
+        <li>
+          <a
+            href="https://www.linkedin.com/in/malek-khaled/"
+            target="_blank"
+            rel="noreferrer nofollow"
+            className={clsx('flex h-9 w-9 items-center justify-center')}
+            aria-label="My LinkedIn profile"
+            title="My LinkedIn profile"
+          >
+            <LinkedInIcon className={clsx('h-5 w-5')} />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.facebook.com/Erlinhollan"
+            target="_blank"
+            rel="noreferrer nofollow"
+            className={clsx('flex h-9 w-9 items-center justify-center')}
+            aria-label="My Facebook profile"
+            title="My Facebook profile"
+          >
+            <FacebookIcon className={clsx('h-5 w-5')} />
+          </a>
+        </li>``
       </ul>
     </div>
   );
@@ -167,7 +191,7 @@ function Footer() {
                     {
                       title: 'Skills and Tools',
                       href: '/work/skills-and-tools',
-                    }
+                    },
                   ]}
                 />
                 <FooterGroup
@@ -189,7 +213,6 @@ function Footer() {
                 <FooterGroup
                   title="This Site"
                   links={[
-                    
                     {
                       title: 'Source Code',
                       href: 'https://github.com/malekluka/malek_portfolio.git',
@@ -212,7 +235,7 @@ function Footer() {
           )}
         >
           <div className={clsx('font-semibold')}>
-            &copy; {dayjs().format('YYYY')},  Malek Khaled
+            &copy; {dayjs().format('YYYY')}, Malek Khaled
           </div>
           <div className={clsx('text-slate-500', 'dark:text-slate-400')}>
             <LastUpdate />

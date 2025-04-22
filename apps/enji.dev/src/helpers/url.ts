@@ -1,11 +1,12 @@
 export const getBaseUrl = () => {
   switch (process.env.NEXT_PUBLIC_VERCEL_ENV) {
     case 'production':
-      return 'https://www.enji.dev';
+      return 'https://malek-portfolio-chi.vercel.app/';
     case 'preview':
       return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
     default:
       return `http://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+ 
   }
 };
 
