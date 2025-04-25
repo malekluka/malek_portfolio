@@ -19,7 +19,7 @@ function ProjectsContents() {
         description="A fully responsive app that lets users search, filter, and save movies. Includes a 'Watch Later' list, authentication, and data fetched from the TMDB API."
         button={{
           title: 'View Project',
-          href: 'https://moviescout-f33zj4te1-maleklukas-projects.vercel.app',
+          href: 'https://moviescout-iota.vercel.app/',
           target: '_blank', // Open in a new tab
           rel: 'noopener noreferrer', // Security improvement
         }}

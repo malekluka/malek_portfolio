@@ -138,7 +138,7 @@ function FooterDescription() {
             title="My LinkedIn profile"
           >
             <LinkedInIcon className={clsx('h-5 w-5')} />
-          </a>
+          </a>https://moviescout-iota.vercel.app/
         </li>
         <li>
           <a
