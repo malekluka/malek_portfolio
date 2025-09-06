@@ -56,7 +56,7 @@ function HeaderTitle() {
             }}
             priority
             fetchPriority="high"
-          />  
+          />
         </m.div>
       </m.div>
       <span className={clsx('text-slate-700', 'dark:text-slate-300')}>
@@ -92,14 +92,14 @@ function HeaderTitle() {
               'dark:text-slate-300'
             )}
           >
-            Front-End Developer, with MERN stack skills 
+            Front-End Developer, with MERN stack skills
           </strong>{' '}
           <span className={clsx('block')}> who loves intuitive, {' '}clean and modern UI design.</span>
         </m.h1>
       </span>
     </div>
   );
-  
+
 }
 
 export default HeaderTitle;
