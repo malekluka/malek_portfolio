@@ -423,7 +423,7 @@ function ProjectsContents() {
                   browserTabs={[
                     {
                       icon: <GitHubIcon className="h-4 w-4" />,
-                      title: 'malekluka/user-app-form - GitHub',
+                      title: 'malekluka/user-form-app - GitHub',
                       isActive: currentState === 'github',
                     },
                   ]}
@@ -433,7 +433,7 @@ function ProjectsContents() {
                       <GitHubWireframe
                         author="malekluka"
                         license="MIT"
-                        repository="user-app-form"
+                        repository="user-form-app"
                         description="Modern employee registration system with Angular reactive forms, local storage persistence, route guards, profile uploads, and comprehensive form validation with auto-suggestions."
                       />
                     </div>
