@@ -8,10 +8,10 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "eslint": "^8.57.1",
-    "prettier": "^3.5.3",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "turbo": "^2.4.4"
+    "eslint": "^8.46.0",
+    "prettier": "^3.8.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "turbo": "^2.8.1"
   },
   "packageManager": "pnpm@10.15.1"
 }
