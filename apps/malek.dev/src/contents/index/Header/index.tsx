@@ -1,7 +1,7 @@
 import clsx from 'clsx';
+import Image from 'next/image';
 
 import HeaderCta from '@/contents/index/Header/HeaderCta';
-import HeaderImage from '@/contents/index/Header/HeaderImage';
 import HeaderTechStack from '@/contents/index/Header/HeaderTechStack';
 import HeaderTitle from '@/contents/index/Header/HeaderTitle';
 
@@ -31,7 +31,15 @@ function Header() {
               'lg:block'
             )}
           >
-            <HeaderImage />
+            <Image
+              alt="Malek Khaled - Full-Stack Developer"
+              src="/assets/images/malek-portrait.png"
+              width={380}
+              height={480}
+              className={clsx('hidden max-w-none rounded-2xl', 'lg:block')}
+              quality={100}
+              priority
+            />
           </div>
         </div>
       </div>

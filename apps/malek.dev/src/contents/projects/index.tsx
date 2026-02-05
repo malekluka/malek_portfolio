@@ -13,6 +13,59 @@ function ProjectsContents() {
 
   return (
     <>
+      <SectionTitle
+        title="Restaurant Next App"
+        caption="Full-Stack Food Ordering Platform built with Next.js 14"
+        description="A comprehensive restaurant application featuring online ordering, payment integration with Stripe, PostgreSQL database with Prisma ORM, user authentication, admin dashboard, real-time order tracking, and a modern responsive UI. Built with Next.js App Router, Server Actions, and Tailwind CSS."
+        button={{
+          title: 'View Live Demo',
+          href: 'https://malek-restaurant-next-app.vercel.app/',
+          target: '_blank',
+          rel: 'noopener noreferrer',
+        }}
+      />
+      <SectionContent>
+        <div className={clsx('flex', 'lg:gap-12')}>
+          <div className={clsx('hidden flex-1 flex-col gap-3 pt-8', 'lg:flex')}>
+            <div className={clsx('flex flex-col gap-3')}>
+              <SectionButton
+                title="Available on GitHub"
+                icon={<GitHubIcon className={clsx('my-2 h-16 w-16')} />}
+                description="Access the full-stack source code for the Restaurant Next App with Stripe integration and Prisma ORM."
+                active={currentState === 'github'}
+                onClick={() => setCurrentState('github')}
+              />
+            </div>
+          </div>
+          <div className={clsx('w-full', 'lg:w-auto')}>
+            <div className={clsx('-mt-[41px]')}>
+              <div className={clsx('w-full', 'lg:h-[400px] lg:w-[600px]')}>
+                <AppWindow
+                  type="browser"
+                  browserTabs={[
+                    {
+                      icon: <GitHubIcon className="h-4 w-4" />,
+                      title: 'malekluka/Restaurant-Next-App - GitHub',
+                      isActive: currentState === 'github',
+                    },
+                  ]}
+                >
+                  {currentState === 'github' && (
+                    <div className="pointer-events-auto">
+                      <GitHubWireframe
+                        author="malekluka"
+                        license="MIT"
+                        repository="Restaurant-Next-App"
+                        description="Full-stack restaurant platform with Next.js 14, PostgreSQL, Prisma, Stripe payments, authentication, admin dashboard, and real-time order management."
+                      />
+                    </div>
+                  )}
+                </AppWindow>
+              </div>
+            </div>
+          </div>
+        </div>
+      </SectionContent>
 
       <SectionTitle
         title="E-Commerce Admin Dashboard"
@@ -75,8 +128,8 @@ function ProjectsContents() {
         button={{
           title: 'View Project',
           href: 'https://moviescout-iota.vercel.app/',
-          target: '_blank', // Open in a new tab
-          rel: 'noopener noreferrer', // Security improvement
+          target: '_blank',
+          rel: 'noopener noreferrer',
         }}
       />
       <SectionContent>
@@ -167,114 +220,6 @@ function ProjectsContents() {
                         license="MIT"
                         repository="malek-kanban-portfolio"
                         description="A modern React Kanban board application with drag-and-drop task management, subtask tracking, and responsive design for agile project workflows."
-                      />
-                    </div>
-                  )}
-                </AppWindow>
-              </div>
-            </div>
-          </div>
-        </div>
-      </SectionContent>
-
-      <SectionTitle
-        title="School Management Dashboard"
-        caption="Built with React, TailwindCSS, Recharts and Lucide Icons"
-        description="A modern school management interface featuring separate dashboards for teachers and students with comprehensive profiles, attendance tracking, exam results, event calendars, and interactive data visualization. Built with React Router, Recharts, and responsive design using mock data for demonstration."
-        button={{
-          title: 'View Project',
-          href: 'https://malek-school-management-system-dashboard.vercel.app/',
-          target: '_blank',
-          rel: 'noopener noreferrer',
-        }}
-      />
-      <SectionContent>
-        <div className={clsx('flex', 'lg:gap-12')}>
-          <div className={clsx('hidden flex-1 flex-col gap-3 pt-8', 'lg:flex')}>
-            <div className={clsx('flex flex-col gap-3')}>
-              <SectionButton
-                title="Available on GitHub"
-                icon={<GitHubIcon className={clsx('my-2 h-16 w-16')} />}
-                description="Access the source code for the School Management Dashboard on GitHub."
-                active={currentState === 'github'}
-                onClick={() => setCurrentState('github')}
-              />
-            </div>
-          </div>
-          <div className={clsx('w-full', 'lg:w-auto')}>
-            <div className={clsx('-mt-[41px]')}>
-              <div className={clsx('w-full', 'lg:h-[400px] lg:w-[600px]')}>
-                <AppWindow
-                  type="browser"
-                  browserTabs={[
-                    {
-                      icon: <GitHubIcon className="h-4 w-4" />,
-                      title: 'malekluka/school-management-system-dashboard - GitHub',
-                      isActive: currentState === 'github',
-                    },
-                  ]}
-                >
-                  {currentState === 'github' && (
-                    <div className="pointer-events-auto">
-                      <GitHubWireframe
-                        author="malekluka"
-                        license="MIT"
-                        repository="school-management-system-dashboard"
-                        description="A responsive school management UI with teacher and student dashboards featuring profile management, attendance visualization, exam tracking, and event calendars built with React and mock data."
-                      />
-                    </div>
-                  )}
-                </AppWindow>
-              </div>
-            </div>
-          </div>
-        </div>
-      </SectionContent>
-
-      <SectionTitle
-        title="MeetusVR Authentication"
-        caption="Built with Next.js 15, TailwindCSS and TypeScript"
-        description="A modern authentication system for a VR shopping metaverse featuring secure JWT-based login, protected routes, form validation with Zod, and beautiful glassmorphic UI design. Built with Next.js 15 App Router, Zustand state management, and server-side authentication."
-        button={{
-          title: 'View Project',
-          href: 'https://malek-meetusvr-auth.vercel.app/',
-          target: '_blank',
-          rel: 'noopener noreferrer',
-        }}
-      />
-      <SectionContent>
-        <div className={clsx('flex', 'lg:gap-12')}>
-          <div className={clsx('hidden flex-1 flex-col gap-3 pt-8', 'lg:flex')}>
-            <div className={clsx('flex flex-col gap-3')}>
-              <SectionButton
-                title="Available on GitHub"
-                icon={<GitHubIcon className={clsx('my-2 h-16 w-16')} />}
-                description="Access the source code for the MeetusVR Authentication system on GitHub."
-                active={currentState === 'github'}
-                onClick={() => setCurrentState('github')}
-              />
-            </div>
-          </div>
-          <div className={clsx('w-full', 'lg:w-auto')}>
-            <div className={clsx('-mt-[41px]')}>
-              <div className={clsx('w-full', 'lg:h-[400px] lg:w-[600px]')}>
-                <AppWindow
-                  type="browser"
-                  browserTabs={[
-                    {
-                      icon: <GitHubIcon className="h-4 w-4" />,
-                      title: 'malekluka/meetusvr-auth - GitHub',
-                      isActive: currentState === 'github',
-                    },
-                  ]}
-                >
-                  {currentState === 'github' && (
-                    <div className="pointer-events-auto">
-                      <GitHubWireframe
-                        author="malekluka"
-                        license="MIT"
-                        repository="meetusvr-auth"
-                        description="Modern authentication system for VR shopping metaverse with JWT security, protected routes, form validation, and glassmorphic design built with Next.js 15 and TypeScript."
                       />
                     </div>
                   )}
