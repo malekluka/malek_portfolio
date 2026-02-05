@@ -15,7 +15,7 @@ function ProjectsContents() {
     <>
       <SectionTitle
         title="Restaurant Next App"
-        caption="Full-Stack Food Ordering Platform built with Next.js 14"
+        caption="Full-Stack Food Ordering Platform built with Next.js 13"
         description="A comprehensive restaurant application featuring online ordering, payment integration with Stripe, PostgreSQL database with Prisma ORM, user authentication, admin dashboard, real-time order tracking, and a modern responsive UI. Built with Next.js App Router, Server Actions, and Tailwind CSS."
         button={{
           title: 'View Live Demo',
@@ -56,7 +56,7 @@ function ProjectsContents() {
                         author="malekluka"
                         license="MIT"
                         repository="Restaurant-Next-App"
-                        description="Full-stack restaurant platform with Next.js 14, PostgreSQL, Prisma, Stripe payments, authentication, admin dashboard, and real-time order management."
+                        description="Full-stack restaurant platform with Next.js 13, PostgreSQL, Prisma, Stripe payments, authentication, admin dashboard, and real-time order management."
                       />
                     </div>
                   )}

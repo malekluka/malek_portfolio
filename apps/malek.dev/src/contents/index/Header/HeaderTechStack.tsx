@@ -1,15 +1,16 @@
-// HeaderTechStack.tsx - Updated with Restaurant App Technologies
 import clsx from 'clsx';
 import { m } from 'framer-motion';
 
 import {
   AngularIcon,
   BootstrapIcon,
+  ClaudeIcon,
+  CursorIcon,
   ExpressIcon,
-  FramerMotionIcon,
+  // FramerMotionIcon,
   GitIcon,
   JavaScriptIcon,
-  JetBrainsIcon,
+  // JetBrainsIcon,
   MongoDBIcon,
   NextJsIcon,
   NodeJsIcon,
@@ -61,6 +62,21 @@ function HeaderTechStack() {
           </div>
         </m.li>
         <m.li variants={animation}>
+          <div className={clsx('transition duration-200 hover:text-[#F7DF1E]')}>
+            <JavaScriptIcon className={clsx('h-6 w-6')} />
+          </div>
+        </m.li>
+         <m.li variants={animation}>
+          <div className={clsx('transition duration-200 hover:text-[#339933]')}>
+            <NodeJsIcon className={clsx('h-6 w-6')} />
+          </div>
+        </m.li>
+        <m.li variants={animation}>
+          <div className={clsx('transition duration-200 hover:text-[#DD0031]')}>
+            <AngularIcon className={clsx('h-6 w-6')} />
+          </div>
+        </m.li>
+        <m.li variants={animation}>
           <div className={clsx('transition duration-200 hover:text-[#3178C6]')}>
             <TypeScriptIcon className={clsx('h-6 w-6')} />
           </div>
@@ -70,16 +86,12 @@ function HeaderTechStack() {
             <TailwindCssIcon className={clsx('h-6 w-6')} />
           </div>
         </m.li>
-        <m.li variants={animation}>
+        {/* <m.li variants={animation}>
           <div className={clsx('transition duration-200 hover:text-[#0055FF]')}>
             <FramerMotionIcon className={clsx('h-6 w-6')} />
           </div>
-        </m.li>
-        <m.li variants={animation}>
-          <div className={clsx('transition duration-200 hover:text-[#339933]')}>
-            <NodeJsIcon className={clsx('h-6 w-6')} />
-          </div>
-        </m.li>
+        </m.li> */}
+       
 
         <m.li variants={animation}>
           <div className={clsx('transition duration-200 hover:text-[#2D3748]')}>
@@ -101,21 +113,13 @@ function HeaderTechStack() {
             <MongoDBIcon className={clsx('h-6 w-6')} />
           </div>
         </m.li>
-        <m.li variants={animation}>
-          <div className={clsx('transition duration-200 hover:text-[#DD0031]')}>
-            <AngularIcon className={clsx('h-6 w-6')} />
-          </div>
-        </m.li>
+        
         <m.li variants={animation}>
           <div className={clsx('transition duration-200 hover:text-[#7952B3]')}>
             <BootstrapIcon className={clsx('h-6 w-6')} />
           </div>
         </m.li>
-        <m.li variants={animation}>
-          <div className={clsx('transition duration-200 hover:text-[#F7DF1E]')}>
-            <JavaScriptIcon className={clsx('h-6 w-6')} />
-          </div>
-        </m.li>
+        
         <m.li variants={animation}>
           <div className={clsx('transition duration-200 hover:text-[#3776AB]')}>
             <PythonIcon className={clsx('h-6 w-6')} />
@@ -134,9 +138,19 @@ function HeaderTechStack() {
             <VSCodeIcon className={clsx('h-6 w-6')} />
           </div>
         </m.li>
-        <m.li variants={animation}>
+        {/* <m.li variants={animation}>
           <div className={clsx('transition duration-200 hover:text-[#000000]')}>
             <JetBrainsIcon className={clsx('jetbrains-icon h-6 w-6')} />
+          </div>
+        </m.li> */}
+         <m.li variants={animation}>
+          <div className={clsx('transition duration-200 hover:text-[#D97757]')}>
+            <ClaudeIcon className={clsx('h-6 w-6')} />
+          </div>
+        </m.li>
+        <m.li variants={animation}>
+          <div className={clsx('transition duration-200 hover:text-[#000000]')}>
+            <CursorIcon className={clsx('h-6 w-6')} />
           </div>
         </m.li>
       </m.ul>

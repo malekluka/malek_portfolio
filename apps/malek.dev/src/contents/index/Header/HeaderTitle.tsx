@@ -86,15 +86,20 @@ function HeaderTitle() {
           transition={{ delay: 0.3 }}
         >
           <span className={clsx('lowercase')}>A</span>{' '}
-          <strong
+           <strong
             className={clsx(
               'font-bold lowercase text-slate-700',
               'dark:text-slate-300'
             )}
           >
-            Front-End Developer, with MERN stack skills
+            Full-Stack Developer
           </strong>{' '}
-          <span className={clsx('block')}> who loves intuitive, {' '}clean and modern UI design.</span>
+          <span className={clsx('block')}>
+            specializing in React, Next.js, Node.js, and PostgreSQL,{' '}
+          </span>
+          <span className={clsx('block')}>
+            who loves building intuitive, clean and modern applications.
+          </span>
         </m.h1>
       </span>
     </div>

@@ -112,8 +112,8 @@ function FooterDescription() {
         About Me
       </div>
       <p className={clsx('mb-4 font-normal leading-relaxed')}>
-        I&apos;m Malek, a <strong>front-end developer</strong> who loves
-        intuitive, clean and modern UI design.
+        I&apos;m Malek, a <strong>full-stack developer </strong>  
+         who loves building intuitive, clean and modern applications.
       </p>
       <ul className={clsx('-ml-2 flex gap-1')}>
         <li>
