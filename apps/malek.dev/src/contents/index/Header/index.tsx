@@ -11,7 +11,8 @@ function Header() {
       id="page-header"
       className={clsx(
         'background-grid background-grid--fade-out pb-20 pt-36',
-        'lg:pb-28 lg:pt-52'
+        'lg:pb-28 lg:pt-52',
+        'overflow-hidden'
       )}
     >
       <div className={clsx('content-wrapper')}>
