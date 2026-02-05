@@ -10,20 +10,23 @@ type QuickViewProps = LinkProps & PropsWithChildren;
 
 export function QuickView({ href, children }: QuickViewProps) {
   const handleQuickView = () => {
-    const title = 'Quick Preview';
-    const width = 480;
-    const height = window.innerHeight - 100;
-    const left = window.innerWidth - (width + 50);
-    const top = 100;
+  const title = 'Quick Preview';
+  const width = 480;
+  const height = window.innerHeight - 100;
+  const left = window.innerWidth - (width + 50);
+  const top = 100;
 
-    const newWindow = window.open(
-      href.toString(),
-      title,
-      `width=${width},height=${height},left=${left},top=${top}`
-    );
+  const newWindow = window.open(
+    href.toString(),
+    title,
+    `width=${width},height=${height},left=${left},top=${top}`
+  );
 
+  if (newWindow) {
     newWindow.focus();
-  };
+  }
+};
+
 
   return (
     <>

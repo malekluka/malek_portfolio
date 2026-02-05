@@ -123,9 +123,8 @@ export function Item({ children = null }: PropsWithChildren) {
 
 interface ItemsProps {
   date: string;
-  children?: ReactElement<typeof Item> | ReactElement<typeof Item>[];
+  children?: ReactElement<typeof Item> | ReactElement<typeof Item>[] | null;
 }
-
 export function Items({
   date,
   children = null,

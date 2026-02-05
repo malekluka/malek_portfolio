@@ -104,21 +104,13 @@ function EmojiReaction({
         className={clsx('relative cursor-pointer select-none', [
           disabled && 'cursor-not-allowed',
         ])}
-        whileTap={!disabled && 'tap'}
+        whileTap={disabled ? undefined : 'tap'} // ✅
         whileHover="hover"
         onHoverStart={() => {
-          if (!disabled) {
-            setSrc(animatedImage);
-          } else {
-            setSrc(disabledImage);
-          }
+          setSrc(disabled ? disabledImage : animatedImage);
         }}
         onHoverEnd={() => {
-          if (!disabled) {
-            setSrc(defaultImage);
-          } else {
-            setSrc(disabledImage);
-          }
+          setSrc(disabled ? disabledImage : defaultImage);
         }}
         onClick={handleClick}
       >

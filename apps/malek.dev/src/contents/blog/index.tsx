@@ -24,13 +24,11 @@ type TPostPreview = TPostFrontMatter & {
 function BlogContents({ posts }: BlogContentsProps) {
   const { data } = useContentMeta();
 
-  let pinnedPost: TPostPreview;
+  let pinnedPost: TPostPreview | undefined;
   const postsPreview: Array<TPostPreview> = [];
 
   posts.forEach(({ slug, frontMatter }) => {
-    const { shares, views } = data[slug]
-      ? data[slug].meta
-      : { shares: 0, views: 0 };
+    const { shares, views } = data?.[slug]?.meta ?? { shares: 0, views: 0 };
 
     const preview: TPostPreview = {
       slug,
@@ -101,7 +99,7 @@ function BlogContents({ posts }: BlogContentsProps) {
               >
                 <div
                   className={clsx(
-                    'border-divider-light mt-14 hidden w-8 -translate-y-1 border-b',
+                    'mt-14 hidden w-8 -translate-y-1 border-b border-divider-light',
                     'md:mt-16 md:w-20 lg:block',
                     'dark:border-divider-dark'
                   )}

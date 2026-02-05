@@ -4,12 +4,15 @@ import type { NextApiRequest } from 'next';
 
 export const getSessionId = (req: NextApiRequest) => {
   const ipAddress = req.headers['x-forwarded-for'] || 'localhost';
+  const salt = process.env.SALT_IP_ADDRESS;
 
-  // hashes the user's IP address and combines it with
-  // a salt to create a unique session ID that preserves
-  // the user's privacy by obscuring their IP address.
+  if (!salt) {
+    throw new Error('SALT_IP_ADDRESS environment variable is not defined');
+  }
+
+  // hashes the user's IP address and combines it with a salt
   const currentSessionId = createHash('md5')
-    .update(ipAddress + process.env.SALT_IP_ADDRESS, 'utf-8')
+    .update(ipAddress + salt, 'utf-8')
     .digest('hex');
 
   return currentSessionId;

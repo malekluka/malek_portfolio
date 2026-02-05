@@ -2,12 +2,10 @@ import { useEffect, useState } from 'react';
 
 export default function useScrollSpy(): {
   currentVisibles: Record<string, boolean>;
-  currentSection: string;
+  currentSection: string | undefined;
 } {
-  const [currentSection, setCurrentSection] = useState<string>(undefined);
-  const [currentVisibles, setCurrentVisibles] = useState<
-    Record<string, boolean>
-  >({});
+  const [currentSection, setCurrentSection] = useState<string | undefined>(undefined);
+  const [currentVisibles, setCurrentVisibles] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     const itemElements = document.querySelectorAll<HTMLElement>('[data-ss]');
@@ -27,7 +25,7 @@ export default function useScrollSpy(): {
       }
     };
 
-    const observers: Array<IntersectionObserver> = [];
+    const observers: IntersectionObserver[] = [];
 
     itemElements.forEach((item) => {
       const threshold: number = Number(item.dataset.ssMt) || 0;
@@ -41,7 +39,7 @@ export default function useScrollSpy(): {
     });
 
     return () => {
-      observers.forEach((observer) => observer.disconnect);
+      observers.forEach((observer) => observer.disconnect());
     };
   }, []);
 

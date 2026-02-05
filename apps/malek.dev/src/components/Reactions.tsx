@@ -26,15 +26,10 @@ function Counter({ count }: CounterProps) {
     const startMotion = async () => {
       await controls.start({
         y: [-20, 0],
-        transition: {
-          duration: 0.18,
-        },
+        transition: { duration: 0.18 },
       });
     };
-
-    if (count !== 0) {
-      startMotion();
-    }
+    if (count !== 0) startMotion();
   }, [count, controls]);
 
   return count === 0 ? (
@@ -90,27 +85,32 @@ function Reactions({
   contentTitle,
   withCountView = true,
 }: ReactionsProps) {
-  // currently, there is no way to get the 'slug' via a component property.
   const { pathname } = useRouter();
   const slug = pathname.split('/').reverse()[0];
 
-  // current active section
   const { currentSection } = useScrollSpy();
 
   const {
     isLoading,
-    data: {
-      meta: {
-        views,
-        shares,
-        reactions,
-        reactionsDetail: { THINKING, CLAPPING, AMAZED },
-      },
-      metaUser: { reactionsDetail: user },
-    },
+    data,
     addShare,
     addReaction,
   } = useInsight({ slug, contentType, contentTitle, countView: withCountView });
+
+  // ✨ fallback لو data undefined
+  const views = data?.meta?.views ?? 0;
+  const shares = data?.meta?.shares ?? 0;
+  const reactions = data?.meta?.reactions ?? 0;
+  const {
+    THINKING = 0,
+    CLAPPING = 0,
+    AMAZED = 0,
+  } = data?.meta?.reactionsDetail ?? {};
+  const user = data?.metaUser?.reactionsDetail ?? {
+    THINKING: 0,
+    CLAPPING: 0,
+    AMAZED: 0,
+  };
 
   const CLAPPING_QUOTA = MAX_REACTIONS_PER_SESSION - user.CLAPPING;
   const THINKING_QUOTA = MAX_REACTIONS_PER_SESSION - user.THINKING;
@@ -124,10 +124,7 @@ function Reactions({
         y: 0,
         opacity: 1,
         pointerEvents: 'auto',
-        transition: {
-          delay: 0.24,
-          duration: 0.18,
-        },
+        transition: { delay: 0.24, duration: 0.18 },
       });
     }
   }, [isLoading, controls]);
@@ -138,11 +135,7 @@ function Reactions({
         'border-divider-light pointer-events-auto relative flex items-center justify-between rounded-xl border p-4',
         'dark:border-divider-dark'
       )}
-      initial={{
-        y: 16,
-        opacity: 0,
-        pointerEvents: 'none',
-      }}
+      initial={{ y: 16, opacity: 0, pointerEvents: 'none' }}
       animate={controls}
     >
       <div
@@ -152,6 +145,7 @@ function Reactions({
         )}
       />
       <div className={clsx('flex items-center gap-4')}>
+        {/* Clapping */}
         <div className={clsx('flex flex-col items-center gap-2')}>
           <EmojiReaction
             disabled={CLAPPING_QUOTA <= 0}
@@ -159,12 +153,12 @@ function Reactions({
             defaultImage="/assets/emojis/clapping-hands.png"
             animatedImage="/assets/emojis/clapping-hands-animated.png"
             disabledImage="/assets/emojis/love-you-gesture.png"
-            onClick={() => {
-              addReaction({ type: 'CLAPPING', section: currentSection });
-            }}
+            onClick={() => addReaction({ type: 'CLAPPING', section: currentSection })}
           />
           <ReactionCounter count={CLAPPING} />
         </div>
+
+        {/* Amazed */}
         <div className={clsx('flex flex-col items-center gap-2')}>
           <EmojiReaction
             disabled={AMAZED_QUOTA <= 0}
@@ -172,12 +166,12 @@ function Reactions({
             defaultImage="/assets/emojis/astonished-face.png"
             animatedImage="/assets/emojis/astonished-face-animated.png"
             disabledImage="/assets/emojis/star-struck.png"
-            onClick={() => {
-              addReaction({ type: 'AMAZED', section: currentSection });
-            }}
+            onClick={() => addReaction({ type: 'AMAZED', section: currentSection })}
           />
           <ReactionCounter count={AMAZED} />
         </div>
+
+        {/* Thinking */}
         <div className={clsx('flex flex-col items-center gap-2')}>
           <EmojiReaction
             disabled={THINKING_QUOTA <= 0}
@@ -185,23 +179,18 @@ function Reactions({
             defaultImage="/assets/emojis/face-with-monocle.png"
             animatedImage="/assets/emojis/face-with-monocle-animated.png"
             disabledImage="/assets/emojis/nerd-face.png"
-            onClick={() => {
-              addReaction({ type: 'THINKING', section: currentSection });
-            }}
+            onClick={() => addReaction({ type: 'THINKING', section: currentSection })}
           />
           <ReactionCounter count={THINKING} />
         </div>
       </div>
+
       <div className={clsx('flex items-start gap-2')}>
         <div className={clsx('flex flex-col items-center gap-2')}>
           <InsightButton views={views} shares={shares} reactions={reactions} />
         </div>
         <div className={clsx('flex flex-col items-center gap-2')}>
-          <ShareButton
-            onItemClick={(type) => {
-              addShare({ type });
-            }}
-          />
+          <ShareButton onItemClick={(type) => addShare({ type })} />
           <ReactionCounter count={shares} />
         </div>
       </div>

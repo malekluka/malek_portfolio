@@ -41,11 +41,12 @@ export default function useInsight({
   countView?: boolean;
 }) {
   // #region handle for batch click
-  const timer = useRef<Record<ReactionType, NodeJS.Timeout>>({
+  const timer = useRef<Record<ReactionType, NodeJS.Timeout | null>>({
     CLAPPING: null,
     THINKING: null,
     AMAZED: null,
   });
+
   const count = useRef<Record<ReactionType, number>>({
     CLAPPING: 0,
     THINKING: 0,
@@ -71,9 +72,9 @@ export default function useInsight({
   const addShare = ({ type }: { type: ShareType }) => {
     // optimistic update
     mutate(
-      merge({}, data, {
+      merge({}, data ?? INITIAL_VALUE, {
         meta: {
-          shares: data.meta.shares + 1,
+          shares: (data?.meta.shares ?? 0) + 1,
         },
       }),
       false
@@ -89,23 +90,23 @@ export default function useInsight({
 
   const addReaction = ({
     type,
-    section = undefined,
+    section = '',
   }: {
     type: ReactionType;
     section?: string;
   }) => {
     // optimistic update
     mutate(
-      merge({}, data, {
+      merge({}, data ?? INITIAL_VALUE, {
         meta: {
-          reactions: data.meta.reactions + 1,
+          reactions: (data?.meta.reactions ?? 0) + 1,
           reactionsDetail: {
-            [type]: data.meta.reactionsDetail[type] + 1,
+            [type]: (data?.meta.reactionsDetail[type] ?? 0) + 1,
           },
         },
         metaUser: {
           reactionsDetail: {
-            [type]: data.metaUser.reactionsDetail[type] + 1,
+            [type]: (data?.metaUser.reactionsDetail[type] ?? 0) + 1,
           },
         },
       }),
@@ -116,7 +117,10 @@ export default function useInsight({
     count.current[type] += 1;
 
     // debounce the batch click for sending the reaction data
-    clearTimeout(timer.current[type]);
+    if (timer.current[type] !== null) {
+      clearTimeout(timer.current[type]);
+    }
+
     timer.current[type] = setTimeout(() => {
       postReaction({
         slug,
@@ -130,7 +134,7 @@ export default function useInsight({
         count.current[type] = 0;
       });
     }, 500);
-  };
+  };;
 
   return {
     isLoading,

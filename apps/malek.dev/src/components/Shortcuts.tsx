@@ -15,7 +15,9 @@ const focusToast = {
 };
 
 function Shortcuts() {
-  const toastRef = useRef(null);
+  // ✅ النوع الصحيح
+  const toastRef = useRef<string | number | null>(null);
+
   const { theme, setTheme } = useTheme();
   const { isQuickAccessOpen, setQuickAccessOpen } = useGlobal();
   const { focusMode, setFocusMode } = useFocusMode();
@@ -33,26 +35,19 @@ function Shortcuts() {
   });
 
   useEffect(() => {
-    if (toastRef.current) {
-      toast.remove(toastRef.current.id);
+    // نحذف التوست السابق إذا موجود
+    if (toastRef.current !== null) {
+      toast.remove(String(toastRef.current)); // ✅ حولناها لـ string
     }
-    if (focusMode) {
-      toastRef.current = toast.custom((t) => (
-        <Toast
-          title={focusToast.title.replace('{STATUS}', 'On')}
-          message={focusToast.message}
-          t={t}
-        />
-      ));
-    } else {
-      toastRef.current = toast.custom((t) => (
-        <Toast
-          title={focusToast.title.replace('{STATUS}', 'Off')}
-          message={focusToast.message}
-          t={t}
-        />
-      ));
-    }
+
+    // نعرض توست جديد
+    toastRef.current = toast.custom((t) => (
+      <Toast
+        title={focusToast.title.replace('{STATUS}', focusMode ? 'On' : 'Off')}
+        message={focusToast.message}
+        t={t}
+      />
+    ));
   }, [focusMode]);
 
   return null;

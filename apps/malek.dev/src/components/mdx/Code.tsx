@@ -50,19 +50,22 @@ function Code({
   const codeRef = useRef<HTMLPreElement>(null);
   const [isCopied, setCopied] = useState<boolean>(false);
 
-  const copyToClipboard = async () => {
-    try {
-      const content = codeRef.current.textContent || '';
-      await navigator.clipboard.writeText(content);
+const copyToClipboard = async () => {
+  try {
+    const node = codeRef.current;
+    if (!node) return; 
 
-      if (!isCopied) {
-        setCopied(true);
-        setTimeout(() => setCopied(false), 1000);
-      }
-    } catch (err) {
-      setCopied(false);
+    const content = node.textContent || '';
+    await navigator.clipboard.writeText(content);
+
+    if (!isCopied) {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1000);
     }
-  };
+  } catch (err) {
+    setCopied(false);
+  }
+};
 
   return (
     <div className={clsx('mdx-code')}>
