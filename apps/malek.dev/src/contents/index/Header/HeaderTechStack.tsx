@@ -139,7 +139,6 @@ function HeaderTechStack() {
             <JetBrainsIcon className={clsx('jetbrains-icon h-6 w-6')} />
           </div>
         </m.li>
-        
       </m.ul>
     </div>
   );

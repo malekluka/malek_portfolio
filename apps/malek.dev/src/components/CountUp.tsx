@@ -7,20 +7,26 @@ interface CountUpProps {
 }
 
 function CountUp({ from, to }: CountUpProps) {
-  const nodeRef = useRef(null);
+  const nodeRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const node = nodeRef.current;
 
-    const controls = animate(from, to, {
-      duration: 1.4,
-      ease: 'easeOut',
-      onUpdate(value) {
-        node.textContent = value.toFixed(0);
-      },
-    });
+    let controls: ReturnType<typeof animate> | null = null;
 
-    return () => controls.stop();
+    if (node) {
+      controls = animate(from, to, {
+        duration: 1.4,
+        ease: 'easeOut',
+        onUpdate(value) {
+          node.textContent = value.toFixed(0);
+        },
+      });
+    }
+
+    return () => {
+      if (controls) controls.stop();
+    };
   }, [from, to]);
 
   return <span ref={nodeRef}>{to}</span>;
