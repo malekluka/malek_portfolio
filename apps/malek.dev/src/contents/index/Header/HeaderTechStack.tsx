@@ -7,10 +7,8 @@ import {
   ClaudeIcon,
   CursorIcon,
   ExpressIcon,
-  // FramerMotionIcon,
   GitIcon,
   JavaScriptIcon,
-  // JetBrainsIcon,
   MongoDBIcon,
   NextJsIcon,
   NodeJsIcon,
@@ -44,7 +42,8 @@ function HeaderTechStack() {
       </m.p>
       <m.ul
         className={clsx(
-          'flex items-center gap-3.5 text-slate-500',
+          'flex flex-wrap items-center gap-3.5 text-slate-500', // Added flex-wrap
+          'md:gap-3.5', // Keep spacing consistent
           'dark:text-slate-500'
         )}
         initial="hide"
@@ -66,7 +65,7 @@ function HeaderTechStack() {
             <JavaScriptIcon className={clsx('h-6 w-6')} />
           </div>
         </m.li>
-         <m.li variants={animation}>
+        <m.li variants={animation}>
           <div className={clsx('transition duration-200 hover:text-[#339933]')}>
             <NodeJsIcon className={clsx('h-6 w-6')} />
           </div>
@@ -86,13 +85,6 @@ function HeaderTechStack() {
             <TailwindCssIcon className={clsx('h-6 w-6')} />
           </div>
         </m.li>
-        {/* <m.li variants={animation}>
-          <div className={clsx('transition duration-200 hover:text-[#0055FF]')}>
-            <FramerMotionIcon className={clsx('h-6 w-6')} />
-          </div>
-        </m.li> */}
-       
-
         <m.li variants={animation}>
           <div className={clsx('transition duration-200 hover:text-[#2D3748]')}>
             <PrismaIcon className={clsx('h-6 w-6')} />
@@ -113,13 +105,11 @@ function HeaderTechStack() {
             <MongoDBIcon className={clsx('h-6 w-6')} />
           </div>
         </m.li>
-        
         <m.li variants={animation}>
           <div className={clsx('transition duration-200 hover:text-[#7952B3]')}>
             <BootstrapIcon className={clsx('h-6 w-6')} />
           </div>
         </m.li>
-        
         <m.li variants={animation}>
           <div className={clsx('transition duration-200 hover:text-[#3776AB]')}>
             <PythonIcon className={clsx('h-6 w-6')} />
@@ -130,20 +120,18 @@ function HeaderTechStack() {
             <GitIcon className={clsx('h-6 w-6')} />
           </div>
         </m.li>
-        <m.li variants={animation}>
+        
+        {/* Separator - visible only on larger screens */}
+        <m.li variants={animation} className={clsx('hidden md:block')}>
           <div className={clsx('h-3 w-[1px] bg-slate-300 dark:bg-slate-700')} />
         </m.li>
+        
         <m.li variants={animation}>
           <div className={clsx('transition duration-200 hover:text-[#007ACC]')}>
             <VSCodeIcon className={clsx('h-6 w-6')} />
           </div>
         </m.li>
-        {/* <m.li variants={animation}>
-          <div className={clsx('transition duration-200 hover:text-[#000000]')}>
-            <JetBrainsIcon className={clsx('jetbrains-icon h-6 w-6')} />
-          </div>
-        </m.li> */}
-         <m.li variants={animation}>
+        <m.li variants={animation}>
           <div className={clsx('transition duration-200 hover:text-[#D97757]')}>
             <ClaudeIcon className={clsx('h-6 w-6')} />
           </div>
