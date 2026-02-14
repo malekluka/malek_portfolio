@@ -19,7 +19,7 @@ function ProjectsContents() {
         description="A comprehensive restaurant application featuring online ordering, payment integration with Stripe, PostgreSQL database with Prisma ORM, user authentication, admin dashboard, real-time order tracking, and a modern responsive UI. Built with Next.js App Router, Server Actions, and Tailwind CSS."
         button={{
           title: 'View Live Demo',
-          href: 'https://malek-restaurant-next-app.vercel.app/',
+          href: 'https://malek-restaurant-next.vercel.app/',
           target: '_blank',
           rel: 'noopener noreferrer',
         }}

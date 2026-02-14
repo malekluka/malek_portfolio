@@ -120,12 +120,12 @@ function HeaderTechStack() {
             <GitIcon className={clsx('h-6 w-6')} />
           </div>
         </m.li>
-        
+
         {/* Separator - visible only on larger screens */}
         <m.li variants={animation} className={clsx('hidden md:block')}>
           <div className={clsx('h-3 w-[1px] bg-slate-300 dark:bg-slate-700')} />
         </m.li>
-        
+
         <m.li variants={animation}>
           <div className={clsx('transition duration-200 hover:text-[#007ACC]')}>
             <VSCodeIcon className={clsx('h-6 w-6')} />
