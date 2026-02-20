@@ -35,8 +35,8 @@ function Header() {
             <Image
               alt="Malek Khaled - Full-Stack Developer"
               src="/assets/images/malek-portrait.png"
-              width={300}
-              height={400}
+              width={380}
+              height={300}
               className={clsx('hidden max-w-none rounded-2xl', 'lg:block')}
               quality={100}
               priority
