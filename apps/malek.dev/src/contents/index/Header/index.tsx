@@ -35,6 +35,7 @@ function Header() {
               className="hidden max-w-none rounded-2xl lg:block"
               quality={100}
               priority
+              unoptimized
             />
           </div>
         </div>
