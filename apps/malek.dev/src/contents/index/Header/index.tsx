@@ -26,18 +26,13 @@ function Header() {
           <div className={clsx('mt-20 lg:mt-36')}>
             <HeaderTechStack />
           </div>
-          <div
-            className={clsx(
-              'pointer-events-none absolute -top-36 right-0 z-0 hidden select-none',
-              'lg:block'
-            )}
-          >
+          <div className="pointer-events-none absolute -top-36 right-0 z-0 hidden select-none lg:block">
             <Image
               alt="Malek Khaled - Full-Stack Developer"
               src="/assets/images/malek-portrait.png"
               width={380}
               height={300}
-              className={clsx('hidden max-w-none rounded-2xl', 'lg:block')}
+              className="hidden max-w-none rounded-2xl lg:block"
               quality={100}
               priority
             />
